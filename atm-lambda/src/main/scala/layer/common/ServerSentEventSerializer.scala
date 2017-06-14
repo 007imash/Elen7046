@@ -5,7 +5,6 @@ import akka.http.scaladsl.unmarshalling.Unmarshal
 import akka.stream.ActorMaterializer
 import de.heikoseeberger.akkasse.scaladsl.model.ServerSentEvent
 
-
 object ServerSentEventSerializer extends JsonSupport  {
 
     def serialize(serverSentEvent: ServerSentEvent): Unit = {
