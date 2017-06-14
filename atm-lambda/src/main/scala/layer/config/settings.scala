@@ -2,7 +2,7 @@ package layer.config
 
 import com.typesafe.config.ConfigFactory
 
-object settings {
+object Settings {
   private val config = ConfigFactory.load()
 
   object ParticleReaderGen {

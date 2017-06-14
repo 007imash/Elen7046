@@ -1,6 +1,6 @@
 package layer.batch
 
 
-object batchJob {
+object BatchJob {
 
 }
