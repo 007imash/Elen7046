@@ -10,6 +10,7 @@ import akka.stream.scaladsl.Source
 import de.heikoseeberger.akkasse.scaladsl.model.ServerSentEvent
 import de.heikoseeberger.akkasse.scaladsl.unmarshalling.EventStreamUnmarshalling
 import layer.config.Settings
+import layer.common.ServerSentEventSerializer
 
 object EventProducer {
 
@@ -26,6 +27,6 @@ object EventProducer {
         Http()
             .singleRequest(Get(settings.deviceUrl))
             .flatMap(Unmarshal(_).to[Source[ServerSentEvent, NotUsed]])
-            .foreach(_.runForeach(println))
+            .foreach(_.runForeach(ServerSentEventSerializer.serialize))
     }
 }
