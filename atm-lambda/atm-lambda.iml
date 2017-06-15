@@ -202,6 +202,9 @@
     <orderEntry type="library" name="Maven: org.apache.thrift:libfb303:0.9.3" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.joda:joda-convert:1.7" level="project" />
-    <orderEntry type="library" name="scala-sdk-2.11.11" level="application" />
+    <orderEntry type="library" name="scala-sdk-2.11.8" level="application" />
+    <orderEntry type="library" name="de.heikoseeberger:akka-sse_2.11:3.0.0" level="application" />
+    <orderEntry type="library" name="com.typesafe.akka:akka-http-spray-json_2.11:3.0.0-RC1" level="application" />
+    <orderEntry type="library" name="com.typesafe.akka:akka-actor_2.11:2.4.12" level="application" />
   </component>
 </module>
