@@ -8,13 +8,17 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 object ServerSentEventSerializer extends JsonSupport  {
 
-    def serialize(serverSentEvent: ServerSentEvent): Unit = {
+    def serializeToObject(serverSentEvent: ServerSentEvent): Unit = {
 
         implicit val system = ActorSystem()
         implicit val mat = ActorMaterializer()
 
         val event = Unmarshal(serverSentEvent.data).to[Event]
-
         println(event)
+    }
+
+    def serializeToString(serverSentEvent: ServerSentEvent): String = {
+
+        serverSentEvent.data
     }
 }
