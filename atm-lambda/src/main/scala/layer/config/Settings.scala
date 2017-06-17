@@ -16,7 +16,10 @@ object Settings {
         lazy val kafkaBootstrapServers: String = particleReaderGen.getString("kafka_bootstrap_servers")
         lazy val kafkaKeySerializerClass: String = particleReaderGen.getString("kafka_key_serializer_class")
         lazy val kafkaValueSerializerClass: String = particleReaderGen.getString("kafka_value_serializer_class")
+        lazy val kafkaKeyDeserializerClass: String = particleReaderGen.getString("kafka_key_deserializer_class")
+        lazy val kafkaValueDeserializerClass: String = particleReaderGen.getString("kafka_value_deserializer_class")
         lazy val kafkaAcks: String = particleReaderGen.getString("kafka_acks")
         lazy val kafkaClientId: String = particleReaderGen.getString("kafka_client_id")
+        lazy val kafkaGroupId: String = particleReaderGen.getString("kafka_group_id")
     }
 }
