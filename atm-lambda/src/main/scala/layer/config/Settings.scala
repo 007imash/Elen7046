@@ -12,7 +12,7 @@ object Settings {
 
         lazy val filepath: String = particleReaderGen.getString("file_path")
         lazy val deviceUrl: String = particleReaderGen.getString("device_url")
-        lazy val kafkaTopic: String = particleReaderGen.getString("kafka_topic")
+        lazy val kafkaTopic: String = particleReaderGen.getString("asset-tracker-topic")
         lazy val kafkaBootstrapServers: String = particleReaderGen.getString("kafka_bootstrap_servers")
         lazy val kafkaKeySerializerClass: String = particleReaderGen.getString("kafka_key_serializer_class")
         lazy val kafkaValueSerializerClass: String = particleReaderGen.getString("kafka_value_serializer_class")
