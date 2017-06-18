@@ -1,6 +1,6 @@
 package layer.device
 
-import java.util
+/*import java.util
 import layer.config.Settings
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import scala.collection.JavaConversions._
@@ -30,4 +30,4 @@ object EventConsumer extends App {
     finally{
         kafkaConsumer.close()
     }
-}
+}*/
