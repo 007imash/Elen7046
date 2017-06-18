@@ -22,6 +22,7 @@
     <orderEntry type="library" name="org.apache.spark:spark-streaming-kafka_2.11:1.6.3" level="project" />
     <orderEntry type="library" name="com.codahale:usl4j:0.5.1" level="project" />
     <orderEntry type="library" name="org.apache.spark:spark-mllib_2.11:2.1.1" level="project" />
+    <orderEntry type="library" name="net.liftweb:lift-json_2.12:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.typesafe.akka:akka-actor_2.11:2.4.12" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-java8-compat_2.11:0.7.0" level="project" />
@@ -37,6 +38,7 @@
     <orderEntry type="library" name="Maven: de.heikoseeberger:akka-sse_2.11:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.typesafe:config:1.3.0" level="project" />
     <orderEntry type="library" name="Maven: com.github.nscala-time:nscala-time_2.11:2.16.0" level="project" />
+    <orderEntry type="library" name="Maven: org.joda:joda-convert:1.2" level="project" />
     <orderEntry type="library" name="Maven: com.datastax.spark:spark-cassandra-connector_2.11:1.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.cassandra:cassandra-clientutil:2.1.5" level="project" />
     <orderEntry type="library" name="Maven: com.datastax.cassandra:cassandra-driver-core:2.1.5" level="project" />
@@ -113,9 +115,6 @@
     <orderEntry type="library" name="Maven: org.json4s:json4s-jackson_2.11:3.2.11" level="project" />
     <orderEntry type="library" name="Maven: org.json4s:json4s-core_2.11:3.2.11" level="project" />
     <orderEntry type="library" name="Maven: org.json4s:json4s-ast_2.11:3.2.11" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scalap:2.11.0" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.0" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.22.2" level="project" />
     <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-api:2.4.0-b34" level="project" />
@@ -225,6 +224,9 @@
     <orderEntry type="library" name="Maven: org.apache.thrift:libthrift:0.9.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.thrift:libfb303:0.9.3" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.8.1" level="project" />
-    <orderEntry type="library" name="Maven: org.joda:joda-convert:1.7" level="project" />
+    <orderEntry type="library" name="Maven: net.liftweb:lift-json_2.12:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scalap:2.12.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.12.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.12:1.0.6" level="project" />
   </component>
 </module>

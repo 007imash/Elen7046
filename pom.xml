@@ -116,9 +116,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.joda</groupId>
-            <artifactId>joda-convert</artifactId>
-            <version>1.7</version>
+            <groupId>net.liftweb</groupId>
+            <artifactId>lift-json_2.12</artifactId>
+            <version>3.0.1</version>
         </dependency>
     </dependencies>
 </project>
