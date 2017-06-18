@@ -27,7 +27,7 @@ package object functions {
      implicit val formats = DefaultFormats
      val jValue = parse(line)
      val location = jValue.extract[DeviceLocation]
-     location.inputProps += ("topic" -> offsetRange.topic, "kafkaPartition" -> offsetRange.partition.toString,
+     location.inputProps + ("topic" -> offsetRange.topic, "kafkaPartition" -> offsetRange.partition.toString,
      "fromOffset" -> offsetRange.fromOffset.toString, "untilOffset" -> offsetRange.untilOffset.toString)
      Option.apply(location)
     }
