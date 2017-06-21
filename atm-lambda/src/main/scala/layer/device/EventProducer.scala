@@ -25,11 +25,10 @@ object EventProducer extends App {
     val events = Http()
         .singleRequest(Get(settings.deviceUrl))
         .flatMap(Unmarshal(_).to[Source[ServerSentEvent, NotUsed]])
-        .foreach(_.runForeach(event => produceMessage(event.data)))
+        .foreach(_.runForeach(event => produceMessage(event.data, Settings.ParticleReaderGen.kafkaTopic)))
 
-    def produceMessage (message: String): Unit = {
+    def produceMessage (message: String, topic: String): Unit = {
 
-        val topic = Settings.ParticleReaderGen.kafkaTopic
         val properties = new EventProducerConfig().create()
         val kafkaProducer: Producer[Nothing, String] = new KafkaProducer[Nothing, String](properties)
 
