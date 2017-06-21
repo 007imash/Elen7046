@@ -79,7 +79,7 @@ object KafkaToCassandra {
 
     deviceLocation.saveToCassandra("asset_tracking_management", "device_location")
 
-    kafkaDirectStream.print()
+    kafkaStream.print()
     streamingContext.start()
     streamingContext.awaitTermination()
   }
