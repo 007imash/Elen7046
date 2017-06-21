@@ -18,7 +18,7 @@ package object functions {
   }
  }
 
- def jsonRddToRDDDeviceLocation(input: RDD[(String, String)]) = {
+ def jsonRddToRDDDeviceLocation(input: RDD[(String, String)]) : RDD[DeviceLocation] = {
   val offsetRanges = input.asInstanceOf[HasOffsetRanges].offsetRanges
   input.mapPartitionsWithIndex({(index, iterator) =>
     val offsetRange = offsetRanges(index)

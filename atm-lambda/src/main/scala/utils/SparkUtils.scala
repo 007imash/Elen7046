@@ -2,11 +2,9 @@ package utils
 
 import java.lang.management.ManagementFactory
 
-import org.apache.spark.sql.SQLContext
-import org.apache.spark.streaming.StreamingContext
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.streaming.{Duration, StreamingContext}
 import org.apache.spark.{SparkConf, SparkContext}
-
-import org.apache.spark.streaming.Duration
 
 /**
   * Created by Phuti Rapheeha on 2017/06/18.
@@ -21,7 +19,7 @@ val isIDE = {
 
     val conf = new SparkConf()
       .setAppName(appName)
-      .set("spark.casandra.connection.host", "localhost")
+      .set("spark.cassandra.connection.host", "localhost")
 
     //Check if runnning from IntelliJ
     if(isIDE) {
@@ -41,8 +39,8 @@ val isIDE = {
   }
 
   def getSQLContext(sc: SparkContext) = {
-    val sQLContext = new SQLContext(sc) //SQLContext.getOrCreate(sc)
-    sQLContext
+    val sqlContext = SparkSession.builder().appName(sc.appName).master("local").getOrCreate()
+    sqlContext
   }
 
   def getStreamingContext(streamingApp: (SparkContext, Duration) => StreamingContext, sc: SparkContext, batchDuration : Duration) = {

@@ -1,13 +1,9 @@
-package layer.steaming
+package layer.streaming
 //import breeze.linalg.max
-import io.netty.handler.codec.string.StringDecoder
 import kafka.common.TopicAndPartition
 import layer.config.Settings
-import layer.functions
 import org.apache.spark.SparkContext
-import org.apache.spark.sql.SaveMode
 import org.apache.spark.sql.functions._
-import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.streaming.{Duration, Seconds, StreamingContext}
 import utils.SparkUtils
 /**
@@ -18,7 +14,6 @@ object StreamingJob {
     // setup Spark Context
     val sc = SparkUtils.getSparkContext("Lambda with Spark")
     val sqlContext = SparkUtils.getSQLContext(sc)
-    import sqlContext.implicits._
 
 
     val batchDuration = Seconds(4)
@@ -47,7 +42,7 @@ object StreamingJob {
         (TopicAndPartition(row.getAs[String]("topic"), row.getAs[Int]("kafkaPartition")), row.getAs[String]("untilOffset").toLong + 1)
       }.toMap
 
-      val kafkaDirectStream = fromOffsets.isEmpty match {
+     /* val kafkaDirectStream = fromOffsets.isEmpty match {
         case true =>
           KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](
             ssc, kafkaDirectionParams, Set(topic)
@@ -75,13 +70,13 @@ object StreamingJob {
           .partitionBy("topic", "kafkaPartition", "published_at")
           .mode(SaveMode.Append)
           .parquet("hdfs://localhost:9000/lambda/asset-tracker-topic/")
-      }
+      }*/
 
     }
 
-    val ssc = SparkUtils.getStreamingContext(streamingApp, sc, batchDuration )
+    //val ssc = SparkUtils.getStreamingContext(streamingApp, sc, batchDuration )
 
-    ssc.start()
-    ssc.awaitTermination()
+    //ssc.start()
+    //ssc.awaitTermination()
   }
 }

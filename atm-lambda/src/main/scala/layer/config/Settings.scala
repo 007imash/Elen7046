@@ -22,5 +22,7 @@ object Settings {
         lazy val kafkaClientId: String = particleReaderGen.getString("kafka_client_id")
         lazy val kafkaGroupId: String = particleReaderGen.getString("kafka_group_id")
         lazy val hdfsPath: String = particleReaderGen.getString("hdfs_path")
+        lazy val cassandraHost = particleReaderGen.getString("cassandraHost")
+        lazy val cassandraPort = particleReaderGen.getString("cassandraPort")
     }
 }

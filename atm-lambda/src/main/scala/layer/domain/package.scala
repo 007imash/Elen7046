@@ -8,7 +8,5 @@ package object domain {
                               data: String,
                               ttl: String,
                               published_at: String,
-                              coreid: String,
-                              inputProps: Map[String, String] = Map()
-  )
+                              coreid: String  )
 }
