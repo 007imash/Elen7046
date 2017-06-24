@@ -1,4 +1,4 @@
-package layer.domain.serializer
+/*package layer.domain.serializer
 import java.util
 
 import layer.domain.DeviceLocation
@@ -22,3 +22,4 @@ class DeviceLocationFSTSerializer extends Serializer[DeviceLocation]{
 
   override def close(): Unit = {}
 }
+*/

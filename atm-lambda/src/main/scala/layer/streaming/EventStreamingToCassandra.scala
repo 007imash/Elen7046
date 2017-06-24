@@ -1,10 +1,10 @@
-package layer.streaming
+/*package layer.streaming
 
 import _root_.kafka.serializer.StringDecoder
 import kafka.common.TopicAndPartition
 import kafka.message.MessageAndMetadata
 import layer.config.Settings
-import layer.functions
+//import layer.functions
 import org.apache.spark.sql.SaveMode
 import org.apache.spark.sql.functions._
 import org.apache.spark.streaming._
@@ -107,3 +107,4 @@ object EventStreamingToCassandra {
     //ssc.awaitTermination()
   }
 }
+*/
