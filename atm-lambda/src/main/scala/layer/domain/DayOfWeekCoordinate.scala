@@ -3,6 +3,9 @@ package layer.domain
 /**
   * Created by Phuti Rapheeha on 2017/06/25.
   */
-class DayOfWeekCoordinate {
-
-}
+case class DayOfWeekCoordinate(latitude: Double,
+                               longitude: Double,
+                               publishedtime: String,
+                               deviceid: String,
+                               date: String,
+                               dayofweek: String)

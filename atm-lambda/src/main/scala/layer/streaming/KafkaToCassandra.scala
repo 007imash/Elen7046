@@ -1,8 +1,5 @@
 package layer.streaming
 
-import java.text.SimpleDateFormat
-import java.util.Calendar
-
 import _root_.kafka.serializer.StringDecoder
 import com.datastax.spark.connector.streaming._
 import layer.config.Settings
@@ -73,23 +70,15 @@ object KafkaToCassandra {
             Some(coordinate)
           }
           else{
-            //Some(Coordinate(-25.664461,28.245125, "2017-06-11T15:11:29.816Z","5a003d001451343334363036"))
             None
           }
         }
         else {
-          val now = Calendar.getInstance().getTime()
-          val dateForm = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-          val publishTime= dateForm.format(now)
-          //Some(Coordinate(-25.664461 + 0.000001,28.245125 + 0.000001, publishTime,"5a003d001451343334363036"))
           None
         }
       }
-    }).saveToCassandra("asset_tracking_management", "coordinates2")
+    }).saveToCassandra("asset_tracking_management", "coordinates_speed")
 
-    //deviceLocation.saveToCassandra("asset_tracking_management", "coordinates")
-
-    //coordinateStream.print()
     streamingContext.start()
     streamingContext.awaitTermination()
   }

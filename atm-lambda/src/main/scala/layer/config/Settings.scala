@@ -24,5 +24,14 @@ object Settings {
         lazy val hdfsPath: String = particleReaderGen.getString("hdfs_path")
         lazy val cassandraHost = particleReaderGen.getString("cassandraHost")
         lazy val cassandraPort = particleReaderGen.getString("cassandraPort")
+        lazy val deviceId = particleReaderGen.getString("deviceId")
+        lazy val cassandra_key_space = particleReaderGen.getString("cassandra_key_space")
+        lazy val cassandra_speed_table = particleReaderGen.getString("cassandra_speed_table")
+        lazy val cassandra_batch_table = particleReaderGen.getString("cassandra_batch_table")
+        lazy val cassandra_daily_table = particleReaderGen.getString("cassandra_daily_table")
+        lazy val cassandra_dayOfWeek_table = particleReaderGen.getString("cassandra_dayOfWeek_table")
+        lazy val cassandra_monthly_table = particleReaderGen.getString("cassandra_monthly_table")
+        lazy val cassandra_hourly_table = particleReaderGen.getString("cassandra_hourly_table")
+
     }
 }
