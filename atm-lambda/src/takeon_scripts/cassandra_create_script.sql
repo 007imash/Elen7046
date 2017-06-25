@@ -51,4 +51,4 @@ longitude double,
 date varchar,
 dayOfWeek varchar,
 hour varchar,
-PRIMARY KEY (deviceid, publishedtime,date,dayOfWeek,hour));
+PRIMARY KEY (deviceid, publishedtime,date));

@@ -119,6 +119,24 @@ object BatchJob {
 
     }).saveToCassandra(particleReaderGen.cassandra_key_space, particleReaderGen.cassandra_monthly_table)
 
+
+    val hourlyCoordinate = coordinateStream.map(coordinate =>{
+      val dayFormat = new SimpleDateFormat("yyyy-MM-dd")
+      val timestampFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+      val publishedDate = timestampFormat.parse(coordinate.publishedtime.substring(0,coordinate.publishedtime.indexOf('.') - 1 ))
+
+      val day = dayFormat.format(publishedDate)
+      val calendar = Calendar.getInstance()
+      calendar.setTime(publishedDate)
+
+      val month = new SimpleDateFormat("MMMM").format(publishedDate)
+      val dayOfWeek = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)
+      val hour = new SimpleDateFormat("HH").format(publishedDate)
+
+      HourlyCoordinate(coordinate.latitude, coordinate.longitude, coordinate.publishedtime,coordinate.deviceid,day, dayOfWeek,hour)
+
+    }).saveToCassandra(particleReaderGen.cassandra_key_space, particleReaderGen.cassandra_hourly_table)
+
     coordinateStream.saveToCassandra(particleReaderGen.cassandra_key_space, particleReaderGen.cassandra_batch_table)
     dailyCoordinate.saveToCassandra(particleReaderGen.cassandra_key_space, particleReaderGen.cassandra_daily_table)
     streamingContext.start()
