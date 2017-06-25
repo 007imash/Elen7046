@@ -1,0 +1,17 @@
+@(wsUrl: String)
+
+<html lang="en">
+<head>
+ <title>Hello Play Kafka</title>
+ <script>
+     var websocket = new WebSocket("@wsUrl");
+     websocket.onmessage = function(event) {
+         var out = document.getElementById("out");
+             out.textContent = event.data;
+     }
+</script>
+</head>
+<body>
+<h1 id="out">Connecting...</h1>
+</body>
+</html>
