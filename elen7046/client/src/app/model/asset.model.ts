@@ -7,5 +7,6 @@ export class Asset implements IAsset {
 	publishedtime: string;
 	deviceid:string;
 	label: string;
+	title: string;
 	draggable: boolean;
 }

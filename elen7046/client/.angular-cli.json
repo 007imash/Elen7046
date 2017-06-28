@@ -1,15 +1,14 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "ui-group4-elen7046"
+    "name": "lbd-angularcli"
   },
   "apps": [
     {
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        "favicon.ico"
+        "assets"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,9 +18,20 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/animate.css/animate.css",
+        "assets/css/light-bootstrap-dashboard.css",
+        "assets/css/pe-icon-7-stroke.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "assets/js/bootstrap-checkbox-radio-switch.js",
+        "../node_modules/chartist/dist/chartist.js",
+        "assets/js/bootstrap-notify.js",
+        "assets/js/light-bootstrap-dashboard.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

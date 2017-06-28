@@ -1,0 +1,20 @@
+<div class="maps-container" [@maps]>
+  <!--<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="scrollwheel" [styles]="styles" [mapTypeControl]="true">
+    <agm-marker [latitude]="lat" [longitude]="lng" [title]="markerTitle"></agm-marker>
+  </agm-map>-->
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10" [mapTypeControl]="true">
+     <!--<agm-marker [latitude]="lat" [longitude]="lng" [title]="markerTitle"></agm-marker> -->
+        <agm-marker *ngFor="let asset of assets; let i = index"
+          (markerClick)="clickedMarker(asset.label, infoWindow, i)"
+          [latitude]="asset.latitude"
+          [longitude]="asset.longitude"
+          [title]="asset.label">
+        </agm-marker>
+        <agm-circle *ngFor="let hotspot of   hotspots; let i = index" [latitude]="hotspot.lat" [longitude]="hotspot.lng" 
+          [radius]="5000"
+          [fillColor]="hotspot.color"
+          [circleDraggable]="true"
+          [editable]="false">
+        </agm-circle>
+</agm-map>
+</div>

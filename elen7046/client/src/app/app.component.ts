@@ -1,49 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
-import { BrowserModule } from "@angular/platform-browser";
-import { RouterModule, Routes } from "@angular/router";
-import { IAsset } from  "./interface/asset.interface";
-import { IHotspot } from  "./interface/hotspot.interface";
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/catch';
-import { AssetService } from './service/asset.service'
-
+import {Component, OnInit} from '@angular/core';
+import { NavItem, NavItemType } from './lbd/lbd.module';
+import { IAsset } from "./interface/asset.interface";
+import { AssetService } from "./service/asset.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css']
+  templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit{
-  title: string = 'Asset Management System';
-  lat: number = -25.966972;
-  lng: number = 28.1050062;
-  infoWindowOpened = null;
-  assets: IAsset[];
-  hotspots: IHotspot[];
-  
-  constructor(private assetService : AssetService) { 
-      
-  }
+export class AppComponent implements OnInit {
+  public navItems: NavItem[];
+    assets: IAsset[];
 
-ngOnInit() {
+  constructor(private assetService : AssetService) {
     this.assetService.getAssets().subscribe(a => {this.assets = a});
-    this.assetService.getHotSpots().subscribe(h =>{this.hotspots=h});
-}
-clickedMarker(label: string, infoWindow, index: number) {
-
-    if( this.infoWindowOpened ===  infoWindow)
-      return;
-      
-    if(this.infoWindowOpened !== null)
-      this.infoWindowOpened.close();
-      
-    this.infoWindowOpened = infoWindow;
   }
 
-}
+  public ngOnInit(): void {
+    this.navItems = [
+      { type: NavItemType.Sidebar, title: 'Dashboard', routerLink: 'dashboard', iconClass: 'pe-7s-graph' },
+      { type: NavItemType.Sidebar, title: 'Asset(s) Location', routerLink: 'maps', iconClass: 'pe-7s-map-marker' },
+      { type: NavItemType.Sidebar, title: 'Asset List', routerLink: 'table', iconClass: 'pe-7s-note2' },
+     
 
-const routes: Routes = [
-];
+      {
+        type: NavItemType.NavbarLeft,
+        title: 'Notifications',
+        iconClass: 'fa fa-globe',
+        numNotifications: this.assets.length,
+        dropdownItems: []
+      },
+      { type: NavItemType.NavbarLeft, title: 'Search', iconClass: 'fa fa-search' },
+
+      { type: NavItemType.NavbarRight, title: 'Account' },
+      
+      { type: NavItemType.NavbarRight, title: 'Log out' }
+    ];
+  }
+}

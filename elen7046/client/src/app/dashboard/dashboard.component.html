@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4" [@cardemail]>
+      <lbd-chart
+        [title]="'Asset Statistics'"
+        [subtitle]="'Last Asset Status History'"
+        [chartClass]="'ct-perfect-fourth'"
+        [chartType]="emailChartType"
+        [chartData]="emailChartData"
+        [legendItems]="emailChartLegendItems"
+        [footerIconClass]="'fa fa-clock-o'"
+        [footerText]="'Asset status: Active'">
+      </lbd-chart>
+    </div>
+
+    <div class="col-md-6" [@cardtasks]>
+      <lbd-task-list
+        [title]="'Assets'"
+        [subtitle]="'List of all linked Assets'"
+        [tasks]="tasks"
+        [footerIconClass]="'fa fa-history'"
+        [footerText]="'Updated 3 minutes ago'">
+      </lbd-task-list>
+    </div>
+  </div>
+
+</div>

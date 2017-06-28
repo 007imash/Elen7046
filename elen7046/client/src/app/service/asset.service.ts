@@ -6,7 +6,6 @@ import { IAsset } from  "../interface/asset.interface";
 import { Subscription } from 'rxjs/Subscription';
 import { ServerSocketService } from './server-socket.service';
 import { Http } from '@angular/http';
-//import { Observable } from 'rxjs/Observable'
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -25,25 +24,17 @@ export class AssetService implements OnInit, OnDestroy {
     this.socketSubscription = stream.subscribe(message => {
       console.log('received message from server: ', message)
       let asset: Asset = <Asset> message; 
-      asset.label='';
+      asset.label='B';
       asset.draggable = false;
-      //if (!this.assets.includes(asset))
       if (!(this.assets.filter(e => e.deviceid == asset.deviceid).length > 0)){
         this.assets.push(asset);
       }else{
         this.assets.pop();
         this.assets.push(asset);
       }
-
-    }) //We need to map the values we get here.
- 
+    }) 
+    //test sending to server
     this.socket.send({ type: 'helloServer' })
-    //this.connection = this.socket.getMessages().subscribe(message => {
-
-    //  this.messages.push(message);
-    //  console.log('received message from server: ', message);
-
-    //});
   }
  
   ngOnDestroy() {
@@ -60,47 +51,8 @@ export class AssetService implements OnInit, OnDestroy {
     return Observable.of(this.hotSpots);
   }
 
-  ngOnInit() {
+  ngOnInit() { }
 
-    
-
-  }
-
-
-  //
-	//  {
-	//	  latitude: -25.966972,
-	//	  longitude: 28.1050062,
-  //    deviceid:'id',
-  //    publishedtime:'time',
-	//	  label: '',
-	//	  draggable: true
-	//  },
-	//  {
-	//	  latitude: -25.908624,
-	//	  longitude: 28.1396793,
-	//	  deviceid:'id',
-  //    publishedtime:'time',
-	//	  label: '',
-	//	  draggable: true
-	//  },
-	//  {
-	//	  latitude: -25.6645012,
-	//	  longitude: 28.2427873,
-	//	  deviceid:'id',
-  //    publishedtime:'time',
-	//	  label: '',
-	//	  draggable: true
-	//  },
-  //    {
-	//	  latitude: -25.8392153,
-	//	  longitude: 28.3137568,
-	//	  deviceid:'id',
-  //    publishedtime:'time',
-	//	  label: '',
-	//	  draggable: true
-	//  }
-  //]
   hotSpots: IHotspot[] = [
 	  {
 		  lat: -25.806972,
