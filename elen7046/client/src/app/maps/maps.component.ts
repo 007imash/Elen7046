@@ -24,7 +24,7 @@ export class MapsComponent implements OnInit {
   today: number = Date.now();
   public zoom = 13;
   public markerTitle = '11:16 - Wednesday 28 June 2017';
-  public scrollwheel = false; // we disable the scroll over the map, it is a really annoying when you scroll through page
+  public scrollwheel = false;
   title: string = 'Asset Management System';
   lat: number = -25.966972;
   lng: number = 28.1050062;

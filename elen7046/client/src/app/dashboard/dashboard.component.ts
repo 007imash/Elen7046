@@ -59,11 +59,6 @@ export class DashboardComponent implements OnInit {
   public ngOnInit() {
     this.navbarTitleService.updateTitle('Dashboard');
 
-    //this.notificationService.notify(new NotificationOptions({
-    //  message: 'Welcome to Asset tracking management system.',
-    //  icon: 'pe-7s-gift'
-    //}));
-
     this.emailChartType = ChartType.Pie;
     this.emailChartData = {
       labels: ['62%', '32%', '6%'],
@@ -77,15 +72,7 @@ export class DashboardComponent implements OnInit {
 
     
     this.tasks = [
-      { title: '', checked: true },
-      { title: '', checked: true },
-      {
-        title: '',
-        checked: true
-      },
-      { title: '', checked: true },
-      { title: '', checked: false },
-      { title: '', checked: false },
+      { title: 'A', checked: false },
     ];
   }
 }
